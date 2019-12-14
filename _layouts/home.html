@@ -24,6 +24,9 @@ layout: default
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}
+        {%- if site.show_full -%}
+          {{ post.content }}
+        {%- endif -%}
       </li>
       {%- endfor -%}
     </ul>

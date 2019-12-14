@@ -30,12 +30,16 @@ github_username:  mpsdskd
 github: mpsdskd
 
 minima:
-  date_format: "%Y-%M-%D" #%b %-d, %Y"
+  date_format: "%Y-%m-%d"
 
   # generate social links in footer
   social_links:
 
     github:  mpsdskd
+    rss: true
+    thingiverse: dskd
+    
+show_full: true
 
 #github:
 #  repository_url: http://example.com
