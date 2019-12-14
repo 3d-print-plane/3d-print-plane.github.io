@@ -29,6 +29,14 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mpsdskd
 github: mpsdskd
 
+minima:
+  date_format: "%b %-d, %Y"
+
+  # generate social links in footer
+  social_links:
+    twitter: jekyllrb
+    github:  jekyll
+
 #github:
 #  repository_url: http://example.com
 
