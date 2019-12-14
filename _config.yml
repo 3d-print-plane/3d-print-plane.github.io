@@ -18,16 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: 3D printed Plane
+# email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+    "I´ll describe my path to a mostly 3d-printed RC model airplane here. As logical, scientific, and well documented as possible. The regarding git with some more documentation, CAD-files, aerodynamic calculations, flight dynamics and 3d models can be found here: https://github.com/mpsdskd/3D-Print-Plane"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+# twitter_username: jekyllrb
+github_username:  mpsdskd
 
 # Build settings
 theme: minima
