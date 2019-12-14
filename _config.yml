@@ -20,12 +20,16 @@
 
 title: 3D printed Plane
 # email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-    "I´ll describe my path to a mostly 3d-printed RC model airplane here. As logical, scientific, and well documented as possible. The regarding git with some more documentation, CAD-files, aerodynamic calculations, flight dynamics and 3d models can be found here: https://github.com/mpsdskd/3D-Print-Plane"
+description: 'I´ll describe my path to a mostly 3d-printed RC model airplane here. As logical, scientific, and well documented as possible. The regarding git with some more documentation, CAD-files, aerodynamic calculations, flight dynamics and 3d models can be found [in the repository](https://github.com/mpsdskd/3D-Print-Plane).'
+#>- # this means to ignore newlines until "baseurl:"
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  mpsdskd
+
+#github:
+#  repository_url: http://example.com
 
 # Build settings
 theme: minima
