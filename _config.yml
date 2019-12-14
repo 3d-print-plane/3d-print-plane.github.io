@@ -30,11 +30,11 @@ github_username:  mpsdskd
 github: mpsdskd
 
 minima:
-  date_format: "%b %-d, %Y"
+  date_format: "%Y-%M-%D" #%b %-d, %Y"
 
   # generate social links in footer
   social_links:
-    twitter: jekyllrb
+
     github:  jekyll
 
 #github:
