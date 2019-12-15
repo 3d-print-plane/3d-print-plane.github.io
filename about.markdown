@@ -4,13 +4,33 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+## Me:
 
-You can find the source code for Minima at GitHub:
+I'm a Maker, studied Aeronautical engineering & finished with M. Sc. @RWTH, am now working as a Research Associate researching machine tool metrology. Still, I have a passion for everything that flies and I want to put my 3D printer to good use, thus this project arose: DIY aerodynamic design, DIY CAD design, DIY build - see what I can do with the skills I acquired so far. 
+Everyone needs some challenges and this challenge lets me take my mind of papers & proposals I have to write.
+
+## Special thanks to:
+
+### Tools used
+
+FreeCAD:
+[FreeCAD](https://github.com/FreeCAD) /
+[FreeCAD](https://github.com/FreeCAD/FreeCAD)
+
+Ultimaker Cura:
+[Ultimaker](https://github.com/Ultimaker/) /
+[Cura](https://github.com/Ultimaker/Cura)
+
+XFLR5:
+[XFLR5](http://xflr5.tech/)
+
+### Website
+
+Minima Theme:
 [jekyll][jekyll-organization] /
 [minima](https://github.com/jekyll/minima)
 
-You can find the source code for Jekyll at GitHub:
+Jekyll:
 [jekyll][jekyll-organization] /
 [jekyll](https://github.com/jekyll/jekyll)
 
