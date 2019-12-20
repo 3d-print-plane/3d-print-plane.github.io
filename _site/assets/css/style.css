@@ -174,9 +174,9 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 .highlighter-rouge .highlight { background: #eef; }
 
 /** Wrapper */
-.wrapper { max-width: -webkit-calc(800px - (30px)); max-width: calc(800px - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
+.wrapper { max-width: -webkit-calc(70% - (30px)); max-width: calc(70% - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
 
-@media screen and (min-width: 800px) { .wrapper { max-width: -webkit-calc(800px - (30px * 2)); max-width: calc(800px - (30px * 2)); padding-right: 30px; padding-left: 30px; } }
+@media screen and (min-width: 800px) { .wrapper { max-width: -webkit-calc(70% - (30px * 2)); max-width: calc(70% - (30px * 2)); padding-right: 30px; padding-left: 30px; } }
 
 /** Clearfix */
 .wrapper:after, .footer-col-wrapper:after { content: ""; display: table; clear: both; }
@@ -304,5 +304,7 @@ table td { border: 1px solid #e8e8e8; }
 
 /** Grid helpers */
 @media screen and (min-width: 800px) { .one-half { width: -webkit-calc(50% - (30px / 2)); width: calc(50% - (30px / 2)); } }
+
+body { overflow-x: hidden !important; }
 
 /*# sourceMappingURL=style.css.map */

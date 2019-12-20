@@ -38,6 +38,28 @@
         <div class="home">
 <!--<h2 class="post-list-heading">Posts</h2> -->
     <ul class="post-list"><li><h3>
+          <a class="post-link" href="/repository/2019/12/18/3d-test.html">
+            3D Test
+          </a>
+        </h3>
+        <span class="post-meta">2019-12-18</span><dl>
+    <div id="mycanvas">
+    This is my fallback content.
+    </div>
+    <script src="/assets/3js/three.js"></script>
+    <script src="/assets/3d.js"></script> 
+    <script src="/assets/3js/OrbitControls.js"></script>
+    <script src="/assets/3js/PLYLoader.js"></script>
+    <script src="/assets/3js/AMFLoader.js"></script>
+    <script src="/assets/3js/OBJLoader.js"></script>
+    <script src="/assets/3js/stats.js"></script>
+    <script>
+        //init_function("/assets/AWK_nuno_emn.ply", 0.001, 0.0 ,0,0, 0,0,0); 
+        init_function("mycanvas", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/1_Test_wing.obj", 0.008, -1,-1.2,0, -Math.PI/2,0,0); 
+        animate();
+    </script>
+</dl>
+</li><li><h3>
           <a class="post-link" href="/repository/2019/11/26/Readme.html">
             Origin Construction ideas
           </a>

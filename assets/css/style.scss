@@ -3,3 +3,6 @@
 ---
 
 @import "minima-{{ site.minima.skin | default: 'classic' }}";
+body {
+    overflow-x: hidden !important;
+}
