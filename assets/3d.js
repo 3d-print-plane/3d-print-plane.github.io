@@ -4,20 +4,25 @@ var camera, cameraTarget, scene, renderer, controls, mesh, loader, wf;
 
 var testing = false;
 
-var width = 0.6;
+var width = 1;
 var height = 0.5;
 
 var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     
-//     container = document.createElement( 'div' );
     container = document.getElementById( div_name );
+    
+//     container = document.createElement( 'div' );
 //     document.body.appendChild( container );
     
     stats = new Stats();
     container.appendChild( stats.dom );
+    
+    console.log(container.offsetWidth,container.offsetHeight);
+    width = container.offsetWidth;
+    height = container.offsetHeight;
 
-    camera = new THREE.PerspectiveCamera( 45, window.innerWidth*width / (window.innerHeight*height), 1, 10000 );
-//     camera = new THREE.PerspectiveCamera( 35, window.innerWidth*width / (window.innerHeight*height), 1, 15 );
+    camera = new THREE.PerspectiveCamera( 45, width/height, 1, 10000); 
+    // window.innerWidth*width / (window.innerHeight*height), 1, 10000 );
     camera.position.set( 3.5, 1.2, 0 );
 
     scene = new THREE.Scene();
@@ -54,7 +59,7 @@ var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     
     
     renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( window.innerWidth*width, window.innerHeight*height );
+    renderer.setSize( width, height); // window.innerWidth*width, window.innerHeight*height );
 
     renderer.gammaInput = true;
     renderer.gammaOutput = true;
@@ -193,16 +198,22 @@ function addShadowedLight( x, y, z, color, intensity ) {
 
 
 function onWindowResize() {
+    console.log(container.offsetWidth,container.offsetHeight);
+    width = container.offsetWidth;
+    height = container.offsetHeight;
 
-				x = window.innerWidth *width;
-                console.log(x);
-				y = window.innerHeight *height;
-                console.log(y);
-
-				camera.aspect = window.innerWidth*width / (window.innerHeight*height);
-				camera.updateProjectionMatrix();
-
-				renderer.setSize( x, y);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize( width, height);
+// 				x = window.innerWidth *width;
+//                 console.log(x);
+// 				y = window.innerHeight *height;
+//                 console.log(y);
+// 
+// 				camera.aspect = window.innerWidth*width / (window.innerHeight*height);
+// 				camera.updateProjectionMatrix();
+// 
+// 				renderer.setSize( x, y);
 
 			}
 

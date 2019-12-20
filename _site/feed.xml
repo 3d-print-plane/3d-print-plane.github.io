@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-12-20T08:17:05+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">3D printed Plane</title><subtitle>I´ll describe my path to a mostly 3d-printed RC model airplane here. As logical, scientific, and well documented as possible. The regarding git with some more documentation, CAD-files, aerodynamic calculations, flight dynamics and 3d models can be found [in the repository](https://github.com/mpsdskd/3D-Print-Plane).</subtitle><entry><title type="html">3D Test</title><link href="http://localhost:4000/repository/2019/12/18/3d-test.html" rel="alternate" type="text/html" title="3D Test" /><published>2019-12-18T00:00:00+01:00</published><updated>2019-12-18T00:00:00+01:00</updated><id>http://localhost:4000/repository/2019/12/18/3d-test</id><content type="html" xml:base="http://localhost:4000/repository/2019/12/18/3d-test.html">&lt;dl&gt;
-    &lt;div id=&quot;mycanvas&quot;&gt;
-    This is my fallback content.
-    &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-12-21T00:08:40+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">3D printed Plane</title><subtitle>I´ll describe my path to a mostly 3d-printed RC model airplane here. As logical, scientific, and well documented as possible. The regarding git with some more documentation, CAD-files, aerodynamic calculations, flight dynamics and 3d models can be found [in the repository](https://github.com/mpsdskd/3D-Print-Plane).</subtitle><entry><title type="html">3D Test</title><link href="http://localhost:4000/repository/2019/12/18/3d-test.html" rel="alternate" type="text/html" title="3D Test" /><published>2019-12-18T00:00:00+01:00</published><updated>2019-12-18T00:00:00+01:00</updated><id>http://localhost:4000/repository/2019/12/18/3d-test</id><content type="html" xml:base="http://localhost:4000/repository/2019/12/18/3d-test.html">&lt;dl&gt;
+    &lt;div id=&quot;mycanvas&quot; style=&quot;position:absolute; background-color:#000; left:0; height:50vh; width:100%&quot; class=&quot;3d_div&quot;&gt; &lt;/div&gt;
+   &lt;div style=&quot;position:relative; height:50vh;&quot;&gt;&lt;/div&gt;
     &lt;script src=&quot;/assets/3js/three.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;/assets/3d.js&quot;&gt;&lt;/script&gt; 
     &lt;script src=&quot;/assets/3js/OrbitControls.js&quot;&gt;&lt;/script&gt;
@@ -10,11 +9,10 @@
     &lt;script src=&quot;/assets/3js/OBJLoader.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;/assets/3js/stats.js&quot;&gt;&lt;/script&gt;
     &lt;script&gt;
-        //init_function(&quot;/assets/AWK_nuno_emn.ply&quot;, 0.001, 0.0 ,0,0, 0,0,0); 
         init_function(&quot;mycanvas&quot;, &quot;https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/1_Test_wing.obj&quot;, 0.008, -1,-1.2,0, -Math.PI/2,0,0); 
         animate();
     &lt;/script&gt;
-&lt;/dl&gt;</content><author><name></name></author><summary type="html">This is my fallback content.</summary></entry><entry><title type="html">Origin Construction ideas</title><link href="http://localhost:4000/repository/2019/11/26/Readme.html" rel="alternate" type="text/html" title="Origin Construction ideas" /><published>2019-11-26T00:00:00+01:00</published><updated>2019-11-26T00:00:00+01:00</updated><id>http://localhost:4000/repository/2019/11/26/Readme</id><content type="html" xml:base="http://localhost:4000/repository/2019/11/26/Readme.html">&lt;ul&gt;
+&lt;/dl&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Origin Construction ideas</title><link href="http://localhost:4000/repository/2019/11/26/Readme.html" rel="alternate" type="text/html" title="Origin Construction ideas" /><published>2019-11-26T00:00:00+01:00</published><updated>2019-11-26T00:00:00+01:00</updated><id>http://localhost:4000/repository/2019/11/26/Readme</id><content type="html" xml:base="http://localhost:4000/repository/2019/11/26/Readme.html">&lt;ul&gt;
   &lt;li&gt;Manufacturing technique fixed as FDM&lt;/li&gt;
   &lt;li&gt;Restrictions of FDM:
     &lt;ul&gt;

@@ -9,6 +9,8 @@ permalink: /about/
 I'm a Maker, studied Aeronautical engineering & finished with M. Sc. @RWTH, am now working as a Research Associate researching machine tool metrology. Still, I have a passion for everything that flies and I want to put my 3D printer to good use, thus this project arose: DIY aerodynamic design, DIY CAD design, DIY build - see what I can do with the skills I acquired so far. 
 Everyone needs some challenges and this challenge lets me take my mind of papers & proposals I have to write.
 
+Did I tell you, that I really started to like THREE.js?
+
 ## Special thanks to:
 
 ### Tools used
