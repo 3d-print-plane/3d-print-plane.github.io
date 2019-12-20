@@ -13,9 +13,10 @@ var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     
 //     container = document.createElement( 'div' );
 //     document.body.appendChild( container );
-    
+    if (testing == true) {
     stats = new Stats();
     container.appendChild( stats.dom );
+    }
     
     console.log(container.offsetWidth,container.offsetHeight);
     width = container.offsetWidth;
@@ -221,7 +222,9 @@ function animate() {
     requestAnimationFrame( animate );
 
     renderer.render( scene, camera );
+    if (testing == true) {
     stats.update();
+    };
     controls.update()
 }
 
