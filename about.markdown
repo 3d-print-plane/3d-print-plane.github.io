@@ -11,9 +11,13 @@ Everyone needs some challenges and this challenge lets me take my mind of papers
 
 Did I tell you, that I really started to like THREE.js?
 
-## Site Repo
+## Site Repository
 
-{github.com/3d-print-plane/3d-print-plane.github.io](https://github.com/3d-print-plane/3d-print-plane.github.io)
+[github.com/3d-print-plane/3d-print-plane.github.io](https://github.com/3d-print-plane/3d-print-plane.github.io)
+
+## Plane Repository
+
+[github.com/mpsdskd/3D-Print-Plane](https://github.com/mpsdskd/3D-Print-Plane)
 
 ## Special thanks to:
 

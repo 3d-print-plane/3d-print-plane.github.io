@@ -1,6 +1,6 @@
-var container, stats;
+var container, stat, stats;
 
-var camera, cameraTarget, scene, renderer, controls, mesh, loader, wf;
+var cameras, cameras, cameraTarget, scene, scenes, renderers, renderer, controls, control, mesh, loader, wf;
 
 var testing = false;
 
@@ -33,7 +33,6 @@ var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     }
 
     // Ground
-
     var plane = new THREE.Mesh(
         new THREE.PlaneBufferGeometry( 10000, 10000 ),
         new THREE.MeshPhongMaterial( { color: 0x050505, specular: 0x101010 } )
@@ -77,13 +76,25 @@ var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     // resize
     window.addEventListener( 'resize', onWindowResize, false );
     
-    controls = new THREE.OrbitControls( camera, renderer.domElement );
-    controls.addEventListener( 'change', render );
-    controls.update();
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 1;
-    controls.target.set( 0, 0, 0 );    
+    control = new THREE.OrbitControls( camera, renderer.domElement );
+    control.addEventListener( 'change', animate );
+
+    control.update();
+    control.autoRotate = true;
+    control.autoRotateSpeed = 1;
+    control.target.set( 0, 0, 0 );  
     
+    if (!(controls)){controls = [];}
+    controls.push(control);
+    
+    if (!(scenes)){scenes = [];}
+    scenes.push(scene);
+    
+    if (!(renderers)){renderers = [];}
+    renderers.push(renderer);
+    
+    if (!(cameras)){cameras = [];}
+    cameras.push(cameras);
 };
 
 function load(filename, s, x,y,z, phi, theta, psi) {
@@ -155,7 +166,7 @@ function load(filename, s, x,y,z, phi, theta, psi) {
         
         scene.add( mesh );
         
-        wf.material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.2, transparent: true,} );
+        wf.material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.1, transparent: true,} );
         wf.position.x = x;// - 0.2;
         wf.position.y = y;
         wf.position.z = z;
@@ -219,24 +230,13 @@ function onWindowResize() {
 			}
 
 function animate() {
-    requestAnimationFrame( animate );
+//     for (i=0; i<renderer.length; i++){
+     requestAnimationFrame( animate );
 
-    renderer.render( scene, camera );
-    if (testing == true) {
-    stats.update();
-    };
-    controls.update()
-}
-
-function render() {
-
-    // var timer = Date.now() * 0.0001;
-
-    // camera.position.x = Math.sin( timer ) * 4;
-    // camera.position.z = Math.cos( timer ) * 4;
-
-    // camera.lookAt( cameraTarget );
-
-    // renderer.render( scene, camera );
+    renderers[0].render( scene, camera );
+//     if (testing == true) {
+//     stats.update();
+//     };
+//     controls[i].update()
 
 }
