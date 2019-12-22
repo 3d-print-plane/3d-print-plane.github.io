@@ -1,13 +1,18 @@
 var container, stat, stats;
 
-var cameras, cameras, cameraTarget, scene, scenes, renderers, renderer, controls, control, mesh, loader, wf;
+var cameras, cameraTarget, scenes, renderers, renderer, controls, mesh, loader, wf;
 
-var testing = false;
+var testing = true;
 
 var width = 1;
 var height = 0.5;
 
 var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
+    
+    if (!(controls)){controls = [];}    
+    if (!(scenes)){scenes = [];}    
+    if (!(renderers)){renderers = [];}
+    if (!(cameras)){cameras = [];}    
     
     container = document.getElementById( div_name );
     
@@ -22,14 +27,14 @@ var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     width = container.offsetWidth;
     height = container.offsetHeight;
 
-    camera = new THREE.PerspectiveCamera( 45, width/height, 1, 10000); 
+    cameras.push(new THREE.PerspectiveCamera( 45, width/height, 1, 10000)); 
     // window.innerWidth*width / (window.innerHeight*height), 1, 10000 );
-    camera.position.set( 3.5, 1.2, 0 );
+    cameras[cameras.length - 1].position.set( 3.5, 1.2, 0 );
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0x080808 );
+    scenes.push(new THREE.Scene());
+    scenes[scenes.length - 1].background = new THREE.Color( 0x080808 );
     if (testing==false){
-        scene.fog = new THREE.Fog( 0x000000, 2, 15 );
+        scenes[scenes.length - 1].fog = new THREE.Fog( 0x000000, 2, 15 );
     }
 
     // Ground
@@ -39,14 +44,14 @@ var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     );
     plane.rotation.x = - Math.PI / 2;
     plane.position.y = - 0.5;
-    scene.add( plane );
+    scenes[scenes.length - 1].add( plane );
 
     plane.receiveShadow = true;
 
     // Lights
     var HL = new THREE.HemisphereLight( 0x222222, 0xffffff, 1.5 )
     HL.castShadow = false;
-    scene.add( HL );
+    scenes[scenes.length - 1].add( HL );
     addShadowedLight( 1.5, 1, 1, 0xffffff, 0.5 );
     addShadowedLight( 1.5, 1, - 1, 0xffffff, .5 );
     addShadowedLight( -2, 1, 0, 0xffffff, .5 );
@@ -76,25 +81,13 @@ var init_function = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     // resize
     window.addEventListener( 'resize', onWindowResize, false );
     
-    control = new THREE.OrbitControls( camera, renderer.domElement );
-    control.addEventListener( 'change', animate );
-
-    control.update();
-    control.autoRotate = true;
-    control.autoRotateSpeed = 1;
-    control.target.set( 0, 0, 0 );  
-    
-    if (!(controls)){controls = [];}
-    controls.push(control);
-    
-    if (!(scenes)){scenes = [];}
-    scenes.push(scene);
-    
-    if (!(renderers)){renderers = [];}
-    renderers.push(renderer);
-    
-    if (!(cameras)){cameras = [];}
-    cameras.push(cameras);
+//     controls.push(new THREE.OrbitControls( cameras[cameras.length - 1], renderer.domElement ));
+//     controls[controls.length - 1].addEventListener( 'change', animate );
+// 
+//     controls[controls.length - 1].update();
+//     controls[controls.length - 1].autoRotate = true;
+//     controls[controls.length - 1].autoRotateSpeed = 1;
+//     controls[controls.length - 1].target.set( 0, 0, 0 );  
 };
 
 function load(filename, s, x,y,z, phi, theta, psi) {
@@ -135,8 +128,8 @@ function load(filename, s, x,y,z, phi, theta, psi) {
         wf.castShadow = false;
         wf.receiveShadow = false;
 
-        scene.add( wf );
-        scene.add( mesh );
+        scene[scenes.length - 1].add( wf );
+        scene[scenes.length - 1].add( mesh );
 
     } );
     };
@@ -164,7 +157,7 @@ function load(filename, s, x,y,z, phi, theta, psi) {
         mesh.castShadow = true;
         mesh.receiveShadow = true;
         
-        scene.add( mesh );
+        scene[scenes.length - 1].add( mesh );
         
         wf.material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.1, transparent: true,} );
         wf.position.x = x;// - 0.2;
@@ -177,7 +170,7 @@ function load(filename, s, x,y,z, phi, theta, psi) {
         wf.castShadow = false;
         wf.receiveShadow = false;
 
-        scene.add( wf );
+        scenes[scenes.length - 1].add( wf );
         
         
         } );
@@ -188,7 +181,7 @@ function addShadowedLight( x, y, z, color, intensity ) {
 
     var directionalLight = new THREE.DirectionalLight( color, intensity );
     directionalLight.position.set( x, y, z );
-    scene.add( directionalLight );
+    scenes[scenes.length - 1].add( directionalLight );
 
     directionalLight.castShadow = true;
 
@@ -229,14 +222,15 @@ function onWindowResize() {
 
 			}
 
-function animate() {
-//     for (i=0; i<renderer.length; i++){
+function animate() {    
+    if (testing == true) {
+    stats.update();
+    };
+     for (i=0; i<scenes.length; i++){
      requestAnimationFrame( animate );
 
-    renderers[0].render( scene, camera );
-//     if (testing == true) {
-//     stats.update();
-//     };
+    renderer.render( scenes[i], cameras[i] );
 //     controls[i].update()
+     }
 
 }
