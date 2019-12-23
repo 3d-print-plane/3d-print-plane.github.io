@@ -1,9 +1,9 @@
 <header class="site-header" style="background-color: #e8f8ff; ">
-    <div style="position: absolute; border: 5px solid blue; left:50vw; height:90px; width:50vw;  pointer-events: none">
-        <img src="/assets/header.png" style="position:0; height:90px; pointer-events:none; z-index:-1; object-fit: cover">
+    <div style="position: absolute; left:40vw; height:90px; width:50vw;  pointer-events: none">
+        <img src="/assets/header.png" style="position:0; height:90px; pointer-events:none; z-index:-1; object-fit: contain">
     </div>
 
-  <div class="wrapper" style="overflow-x:hidden; z-index: 999">
+  <div class="wrapper" style="position:relative; overflow-x:hidden; z-index: 999">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
