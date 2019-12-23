@@ -8,7 +8,7 @@ categories: Basic Test
 
 
 
-[Wing Segment](https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/1_Test_wing.obj)
+[Wing Segment](https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/4_Test_wing_with_cutouts.obj)
 <dl>
     <div id="mycanvas1" style="position:absolute; background-color:#000000; left:0; height:50vh; width:100%"> </div>
     <div style="position:relative; height:50vh; width:0px"></div>

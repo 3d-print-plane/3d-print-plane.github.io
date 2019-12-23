@@ -5,7 +5,7 @@ var cameras, cameraTarget, sceneInfos, renderers, renderer, controls, mesh, load
 var testing = false;
 
 var start = Date.now();
-var rate = 30; // Hz
+var rate = 25; // Hz
 var lastFrameNumber;
 
 if (testing) {rate = 2;}
