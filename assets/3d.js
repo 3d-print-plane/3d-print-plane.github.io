@@ -10,19 +10,15 @@ var lastFrameNumber;
 
 if (testing) {rate = 2;}
 
-// var width = 1;
-// var height = 0.5;
-
-
 var createRenderer = function(){
     var canvas = document.getElementById( "renderCanvas" );
     if (!(canvas)){
         console.log("Renderer not found, creating new one");
         canvas = document.createElement( 'canvas' );
         canvas.setAttribute("id", "renderCanvas");
-        canvas.style.cssText = "position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; display: block; z-index: 999; pointer-events: none"//  border: 5px solid blue; "
+        canvas.style.cssText = "position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; display: block; z-index: 999; pointer-events: none"//  border: 5px solid blue; "
         document.body.appendChild( canvas );
-        renderer = new THREE.WebGLRenderer({canvas, alpha: true});
+        renderer = new THREE.WebGLRenderer({canvas, alpha: true, antialias: true, powerPreference: "low-power",});
         renderer.gammaInput = true;
         renderer.gammaOutput = true;
 
@@ -270,8 +266,8 @@ function renderScene(sceneInfo){
 
 function render(time) {
 //     time *= 0.001;
-    const transform = `translateY(${window.scrollY}px)`;
-    renderer.domElement.style.transform = transform;
+//     const transform = `translateY(${window.scrollY}px)`;
+//     renderer.domElement.style.transform = transform;
 
     var elapsed = Date.now() - start;
     var frameNumber = Math.round(elapsed/(1000/rate));
