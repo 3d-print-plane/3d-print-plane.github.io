@@ -21,6 +21,16 @@ Did I tell you, that I really started to like THREE.js?
 
 ## Special thanks to:
 
+### 3JS Tools & Help
+
+3JS general & file loaders etc.:
+[Mr.doob](https://github.com/mrdoob) / [three.js](https://github.com/mrdoob/three.js/)    [With good documentation](https://threejs.org/)
+
+Incredibly useful for creating multiple render windows on one page:
+[threejsfundamentals.org/threejs/lessons/threejs-multiple-scenes.html](https://threejsfundamentals.org/threejs/lessons/threejs-multiple-scenes.html)
+<sub><sub><sub> Multiple 3d elements sucked at first, as I first tested with a single 3d element - which worked beautifully - and then EVERYTHING broke with multiple 3d elements :( </sub></sub></sub>
+
+
 ### Tools used
 
 FreeCAD:

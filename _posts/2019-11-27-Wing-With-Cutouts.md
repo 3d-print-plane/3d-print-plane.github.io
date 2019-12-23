@@ -20,8 +20,8 @@ categories: Basic Test
     <script src = "/assets/3js/OBJLoader.js"></script>
     <script src = "/assets/3js/stats.js"></script>
     <script>
-        init_function("mycanvas1", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/4_Test_wing_with_cutouts.obj", 0.008, -1,-1.2,0, -Math.PI/2,0,0); 
-        animate();
+        makeScene("mycanvas1", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/4_Test_wing_with_cutouts.obj", 0.008, -1,-1.2,0, -Math.PI/2,0,0); 
+        render();
     </script>
 </dl>
 
