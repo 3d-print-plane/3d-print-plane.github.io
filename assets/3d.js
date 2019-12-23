@@ -5,8 +5,10 @@ var cameras, cameraTarget, sceneInfos, renderers, renderer, controls, mesh, load
 var testing = false;
 
 var start = Date.now();
-var rate = 10; // Hz
+var rate = 30; // Hz
 var lastFrameNumber;
+
+if (testing) {rate = 2;}
 
 // var width = 1;
 // var height = 0.5;
@@ -18,13 +20,18 @@ var createRenderer = function(){
         console.log("Renderer not found, creating new one");
         canvas = document.createElement( 'canvas' );
         canvas.setAttribute("id", "renderCanvas");
-        canvas.style.cssText = "position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; display: block; z-index: -1;"
+        canvas.style.cssText = "position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; display: block; z-index: 999; pointer-events: none"//  border: 5px solid blue; "
         document.body.appendChild( canvas );
+        renderer = new THREE.WebGLRenderer({canvas, alpha: true});
+        renderer.gammaInput = true;
+        renderer.gammaOutput = true;
+
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.autoUpdate = true;
+//         renderer.setClearColor( 0x0000ff, 0 );
     }
     else {console.log("Renderer already existing");}
-    
 }
-
 createRenderer();
 
 var resizeRendererToDisplaySize = function(renderer) {
@@ -39,20 +46,13 @@ var resizeRendererToDisplaySize = function(renderer) {
 }
 
 var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
-    
-//     if (!(controls)){controls = [];}    
-//     if (!(scenes)){scenes = [];}    
-//     if (!(renderers)){renderers = [];}
-//     if (!(cameras)){cameras = [];}    
      
     if (!(sceneInfos)){sceneInfos = [];}   
     
     sceneInfos.push({"scene": undefined, "meshes": [], "camera":undefined, "htmlElement":undefined, "controls":undefined});
     
     sceneInfos[sceneInfos.length - 1].htmlElement =  document.getElementById( div_name );
-    
-//     container = document.createElement( 'div' );
-//     document.body.appendChild( container );
+
     if (testing == true) {
     stats = new Stats();
     sceneInfos[sceneInfos.length - 1].htmlElement.appendChild( stats.dom );
@@ -67,15 +67,15 @@ var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     sceneInfos[sceneInfos.length - 1].camera.position.set( 3.5, 1.2, 0 );
 
     sceneInfos[sceneInfos.length - 1].scene = new THREE.Scene();
-    sceneInfos[sceneInfos.length - 1].scene.background = new THREE.Color( 0xff0000);//0x080808 );
-//     if (testing==false){
-//         scenes[scenes.length - 1].fog = new THREE.Fog( 0x000000, 2, 15 );
-//     }
+//     sceneInfos[sceneInfos.length - 1].scene.background = new THREE.Color((testing) ? 0xff0000 : 0x080808 );
+    if (testing==false){
+        sceneInfos[sceneInfos.length - 1].scene.fog = new THREE.Fog( 0x000000, 2, 15 );
+    }
 
     // Ground
     var plane = new THREE.Mesh(
         new THREE.PlaneBufferGeometry( 10000, 10000 ),
-        new THREE.MeshPhongMaterial( { color: 0x00ff00, specular: 0x101010 } ) //0x050505
+        new THREE.MeshPhongMaterial( { color: (testing) ? 0x00ff00 : 0x050505, specular: 0x101010 } ) //0x050505
     );
     plane.rotation.x = - Math.PI / 2;
     plane.position.y = - 0.5;
@@ -91,23 +91,23 @@ var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     addShadowedLight( 1.5, 1, - 1, 0xffffff, .5 );
     addShadowedLight( -2, 1, 0, 0xffffff, .5 );
 
-    // renderer
-    renderer = new THREE.WebGLRenderer( { antialias: true, powerPreference: "low-power", } );
-    
-    // PLY file
+//     // renderer
+//     renderer = new THREE.WebGLRenderer( { antialias: true, powerPreference: "low-power", } );
+//     
+//     // PLY file
     load(filename, s, x, y, z, phi, theta, psi);
-    
-    
-    renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( width, height); // window.innerWidth*width, window.innerHeight*height );
-
-    renderer.gammaInput = true;
-    renderer.gammaOutput = true;
-
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.autoUpdate = true;
-
-    sceneInfos[sceneInfos.length - 1].htmlElement.appendChild( renderer.domElement );
+//     
+//     
+//     renderer.setPixelRatio( window.devicePixelRatio );
+//     renderer.setSize( width, height); // window.innerWidth*width, window.innerHeight*height );
+// 
+//     renderer.gammaInput = true;
+//     renderer.gammaOutput = true;
+// 
+//     renderer.shadowMap.enabled = true;
+//     renderer.shadowMap.autoUpdate = true;
+// 
+//     sceneInfos[sceneInfos.length - 1].htmlElement.appendChild( renderer.domElement );
 
     // stats
     // stats = new Stats();
@@ -116,14 +116,15 @@ var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     // resize
     window.addEventListener( 'resize', onWindowResize, false );
     
-    sceneInfos[sceneInfos.length - 1].controls = new THREE.OrbitControls( sceneInfos[sceneInfos.length - 1].camera, renderer.domElement, sceneInfos[sceneInfos.length - 1].htmlElement
+    sceneInfos[sceneInfos.length - 1].controls = new THREE.OrbitControls( sceneInfos[sceneInfos.length - 1].camera, document.getElementById( div_name ), sceneInfos[sceneInfos.length - 1].htmlElement
     );
 
     sceneInfos[sceneInfos.length - 1].controls.addEventListener( 'change', render );
 //     sceneInfos[sceneInfos.length - 1].controls.update();
     sceneInfos[sceneInfos.length - 1].controls.autoRotate = true;
-//     sceneInfos[sceneInfos.length - 1].controls.autoRotateSpeed = 1;
-//     sceneInfos[sceneInfos.length - 1].controls.target.set( 0, 0, 0 );  
+    sceneInfos[sceneInfos.length - 1].controls.autoRotateSpeed = 1;
+    sceneInfos[sceneInfos.length - 1].controls.target.set( 0, 0.5, 0 );  
+    resizeRendererToDisplaySize(renderer);
 };
 
 function load(filename, s, x,y,z, phi, theta, psi) {
@@ -242,35 +243,12 @@ function addShadowedLight( x, y, z, color, intensity ) {
 
 }
 
+function onWindowResize() { resizeRendererToDisplaySize(renderer); }
 
-function onWindowResize() {
-//     console.log(container.offsetWidth,container.offsetHeight);
-// //     width = container.offsetWidth;
-// //     height = container.offsetHeight;
-// // 
-// //     camera.aspect = width / height;
-// //     camera.updateProjectionMatrix();
-// //     renderer.setSize( width, height);
-// 				x = window.innerWidth *width;
-//                 console.log(x);
-// 				y = window.innerHeight *height;
-//                 console.log(y);
-// 
-// 				camera.aspect = window.innerWidth*width / (window.innerHeight*height);
-// 				camera.updateProjectionMatrix();
-// 
-// 				renderer.setSize( x, y);
-    resizeRendererToDisplaySize(renderer);
-
-			}
-			
 function renderScene(sceneInfo){
 //     console.log("Scene Info", sceneInfo);
     const {left, right, top, bottom, width, height} = sceneInfo.htmlElement.getBoundingClientRect();
-    if (testing==true){
-        console.log(left, right, top, bottom, width, height);
-    }
-//     console.log(sceneInfo.htmlElement.getBoundingClientRect());
+    if (testing==true){ console.log(left, right, top, bottom, width, height);}
     const isOffscreen =
         bottom < 0 ||
         top > renderer.domElement.clientHeight ||
@@ -282,7 +260,8 @@ function renderScene(sceneInfo){
     sceneInfo.camera.aspect = width / height;
     sceneInfo.camera.updateProjectionMatrix();
  
-    const positiveYUpBottom = bottom - height; //canvasRect.height - bottom;
+    const positiveYUpBottom = renderer.domElement.clientHeight - bottom;
+    if (testing) console.log(left, positiveYUpBottom, width, height);
     renderer.setScissor(left, positiveYUpBottom, width, height);
     renderer.setViewport(left, positiveYUpBottom, width, height);
     renderer.render(sceneInfo.scene, sceneInfo.camera);
@@ -291,8 +270,8 @@ function renderScene(sceneInfo){
 
 function render(time) {
 //     time *= 0.001;
-//     const transform = `translateY(${window.scrollY}px)`;
-//     renderer.domElement.style.transform = transform;
+    const transform = `translateY(${window.scrollY}px)`;
+    renderer.domElement.style.transform = transform;
 
     var elapsed = Date.now() - start;
     var frameNumber = Math.round(elapsed/(1000/rate));
@@ -305,8 +284,6 @@ function render(time) {
     }
     lastFrameNumber = frameNumber;
     
-    resizeRendererToDisplaySize(renderer);
-    
     renderer.setScissorTest(false);
     renderer.clear(true, true);
     renderer.setScissorTest(true);
@@ -314,19 +291,6 @@ function render(time) {
         renderScene(sceneInfo);
     }
     requestAnimationFrame(render);
-    stats.update();
+    if (testing) stats.update();
 }
 
-// function animate() {    
-//     if (testing == true) {
-//     stats.update();
-//     };
-//     for (i=0; i<sceneInfos.length; i++){
-//         render(sceneInfos[i]);
-// //         requestAnimationFrame( animate );
-// 
-// //         renderer.render( sceneInfos[i].scene, sceneInfos[i].camera );
-// //     controls[i].update()
-//     }
-// 
-// }
