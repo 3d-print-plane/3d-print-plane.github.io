@@ -43,29 +43,29 @@ var resizeRendererToDisplaySize = function(renderer) {
 
 var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
      
-    if (!(sceneInfos)){sceneInfos = [];}   
+    if (!(sceneInfos)){sceneInfos = {};}   
     
-    sceneInfos.push({"scene": undefined, "meshes": [], "camera":undefined, "htmlElement":undefined, "controls":undefined});
+    sceneInfos[div_name]={"scene": undefined, "meshes": [], "camera":undefined, "htmlElement":undefined, "controls":undefined};
     
-    sceneInfos[sceneInfos.length - 1].htmlElement =  document.getElementById( div_name );
+    sceneInfos[div_name].htmlElement =  document.getElementById( div_name );
 
     if (testing == true) {
     stats = new Stats();
-    sceneInfos[sceneInfos.length - 1].htmlElement.appendChild( stats.dom );
+    sceneInfos[div_name].htmlElement.appendChild( stats.dom );
     }
     
-    console.log(sceneInfos[sceneInfos.length - 1].htmlElement.offsetWidth,sceneInfos[sceneInfos.length - 1].htmlElement.offsetHeight);
-    width = sceneInfos[sceneInfos.length - 1].htmlElement.offsetWidth;
-    height = sceneInfos[sceneInfos.length - 1].htmlElement.offsetHeight;
+    console.log(sceneInfos[div_name].htmlElement.offsetWidth,sceneInfos[div_name].htmlElement.offsetHeight);
+    width = sceneInfos[div_name].htmlElement.offsetWidth;
+    height = sceneInfos[div_name].htmlElement.offsetHeight;
 
-    sceneInfos[sceneInfos.length - 1].camera = new THREE.PerspectiveCamera( 45, width/height, 1, 10000); 
+    sceneInfos[div_name].camera = new THREE.PerspectiveCamera( 45, width/height, 1, 10000); 
     // window.innerWidth*width / (window.innerHeight*height), 1, 10000 );
-    sceneInfos[sceneInfos.length - 1].camera.position.set( 3.5, 1.2, 0 );
+    sceneInfos[div_name].camera.position.set( 3.5, 1.2, 0 );
 
-    sceneInfos[sceneInfos.length - 1].scene = new THREE.Scene();
-//     sceneInfos[sceneInfos.length - 1].scene.background = new THREE.Color((testing) ? 0xff0000 : 0x080808 );
+    sceneInfos[div_name].scene = new THREE.Scene();
+//     sceneInfos[div_name].scene.background = new THREE.Color((testing) ? 0xff0000 : 0x080808 );
     if (testing==false){
-        sceneInfos[sceneInfos.length - 1].scene.fog = new THREE.Fog( 0x000000, 2, 15 );
+        sceneInfos[div_name].scene.fog = new THREE.Fog( 0x000000, 2, 15 );
     }
 
     // Ground
@@ -75,23 +75,23 @@ var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     );
     plane.rotation.x = - Math.PI / 2;
     plane.position.y = - 0.5;
-    sceneInfos[sceneInfos.length - 1].scene.add( plane );
+    sceneInfos[div_name].scene.add( plane );
 
     plane.receiveShadow = true;
 
     // Lights
     var HL = new THREE.HemisphereLight( 0x222222, 0xffffff, 1.5 )
     HL.castShadow = false;
-    sceneInfos[sceneInfos.length - 1].scene.add( HL );
-    addShadowedLight( 1.5, 1, 1, 0xffffff, 0.5 );
-    addShadowedLight( 1.5, 1, - 1, 0xffffff, .5 );
-    addShadowedLight( -2, 1, 0, 0xffffff, .5 );
+    sceneInfos[div_name].scene.add( HL );
+    addShadowedLight(div_name, 1.5, 1, 1, 0xffffff, 0.5 );
+    addShadowedLight(div_name, 1.5, 1, - 1, 0xffffff, .5 );
+    addShadowedLight(div_name, -2, 1, 0, 0xffffff, .5 );
 
 //     // renderer
 //     renderer = new THREE.WebGLRenderer( { antialias: true, powerPreference: "low-power", } );
 //     
 //     // PLY file
-    load(filename, s, x, y, z, phi, theta, psi);
+    load(div_name, filename, s, x, y, z, phi, theta, psi);
 //     
 //     
 //     renderer.setPixelRatio( window.devicePixelRatio );
@@ -103,7 +103,7 @@ var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
 //     renderer.shadowMap.enabled = true;
 //     renderer.shadowMap.autoUpdate = true;
 // 
-//     sceneInfos[sceneInfos.length - 1].htmlElement.appendChild( renderer.domElement );
+//     sceneInfos[div_name].htmlElement.appendChild( renderer.domElement );
 
     // stats
     // stats = new Stats();
@@ -112,18 +112,18 @@ var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     // resize
     window.addEventListener( 'resize', onWindowResize, false );
     
-    sceneInfos[sceneInfos.length - 1].controls = new THREE.OrbitControls( sceneInfos[sceneInfos.length - 1].camera, document.getElementById( div_name ), sceneInfos[sceneInfos.length - 1].htmlElement
+    sceneInfos[div_name].controls = new THREE.OrbitControls( sceneInfos[div_name].camera, document.getElementById( div_name ), sceneInfos[div_name].htmlElement
     );
 
-    sceneInfos[sceneInfos.length - 1].controls.addEventListener( 'change', render );
-//     sceneInfos[sceneInfos.length - 1].controls.update();
-    sceneInfos[sceneInfos.length - 1].controls.autoRotate = true;
-    sceneInfos[sceneInfos.length - 1].controls.autoRotateSpeed = 1;
-    sceneInfos[sceneInfos.length - 1].controls.target.set( 0, 0.5, 0 );  
+    sceneInfos[div_name].controls.addEventListener( 'change', render );
+//     sceneInfos[div_name].controls.update();
+    sceneInfos[div_name].controls.autoRotate = true;
+    sceneInfos[div_name].controls.autoRotateSpeed = 1;
+    sceneInfos[div_name].controls.target.set( 0, 0.5, 0 );  
     resizeRendererToDisplaySize(renderer);
 };
 
-function load(filename, s, x,y,z, phi, theta, psi) {
+function load(div_name, filename, s, x,y,z, phi, theta, psi) {
     
     var filetype = filename.split('.').pop().toLowerCase();
     console.log(filetype);
@@ -161,11 +161,11 @@ function load(filename, s, x,y,z, phi, theta, psi) {
         wf.castShadow = false;
         wf.receiveShadow = false;
 
-        sceneInfos[sceneInfos.length - 1].scene.add( wf );
-        sceneInfos[sceneInfos.length - 1].scene.add( mesh );
+        sceneInfos[div_name].scene.add( wf );
+        sceneInfos[div_name].scene.add( mesh );
 
-        sceneInfos[sceneInfos.length - 1].meshes.push( wf );
-        sceneInfos[sceneInfos.length - 1].meshes.push( mesh );
+        sceneInfos[div_name].meshes.push( wf );
+        sceneInfos[div_name].meshes.push( mesh );
 
     } );
     };
@@ -204,22 +204,22 @@ function load(filename, s, x,y,z, phi, theta, psi) {
         wf.castShadow = false;
         wf.receiveShadow = false;
 
-        sceneInfos[sceneInfos.length - 1].scene.add( wf );
-        sceneInfos[sceneInfos.length - 1].scene.add( mesh );
+        sceneInfos[div_name].scene.add( wf );
+        sceneInfos[div_name].scene.add( mesh );
 
-        sceneInfos[sceneInfos.length - 1].meshes.push( wf );
-        sceneInfos[sceneInfos.length - 1].meshes.push( mesh );
+        sceneInfos[div_name].meshes.push( wf );
+        sceneInfos[div_name].meshes.push( mesh );
         
         
         } );
     };
 }
 
-function addShadowedLight( x, y, z, color, intensity ) {
+function addShadowedLight(scene, x, y, z, color, intensity ) {
 
     var directionalLight = new THREE.DirectionalLight( color, intensity );
     directionalLight.position.set( x, y, z );
-    sceneInfos[sceneInfos.length - 1].scene.add( directionalLight );
+    sceneInfos[scene].scene.add( directionalLight );
 
     directionalLight.castShadow = true;
 
@@ -283,8 +283,8 @@ function render(time) {
     renderer.setScissorTest(false);
     renderer.clear(true, true);
     renderer.setScissorTest(true);
-    for (sceneInfo of sceneInfos){
-        renderScene(sceneInfo);
+    for (scene in sceneInfos){
+        renderScene(sceneInfos[scene]);
     }
     requestAnimationFrame(render);
     if (testing) stats.update();
