@@ -3,7 +3,7 @@
         <img src="/assets/header.png" style="position:0; height:90px; pointer-events:none; z-index:-1; object-fit: contain">
     </div>
 
-  <div class="wrapper" style="position:sticky; "> <!--overflow-x:hidden; z-index: 999-->
+  <div class="wrapper" style="position:sticky; ">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
