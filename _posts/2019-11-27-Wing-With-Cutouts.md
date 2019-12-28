@@ -5,8 +5,8 @@ date:   2019-11-27
 categories: Basic Test
 comments_id: 3
 --- 
-
-<div style="float: right; width: 40%; text-align: center; margin-left: 2%; ">
+TODO IMAGE
+<div style="float: right; width: 40%; text-align: center; margin-left: 0.5em;  margin-bottom: 0.5em;">
     <img width="100%" src="/img/xflr5.png" alt="XFLR5"/>
 </div>
 

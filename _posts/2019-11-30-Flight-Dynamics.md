@@ -5,7 +5,7 @@ date:   2019-11-30
 categories: Aerodynamics
 comments_id: 5
 --- 
-<div style="float: right; width: 100%; text-align: center; ">
+<div style="float: right; width: 100%; text-align: center; margin-bottom: 0.5em;">
     <img width="100%" src="/img/xflr5_profiles.png" alt="Profiles"/>
 </div>
 Disclaimer: This one is quite long and I cannot guarantee factual accuracy.
