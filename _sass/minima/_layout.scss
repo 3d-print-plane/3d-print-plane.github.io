@@ -220,6 +220,7 @@
 
 .post-link {
   display: block;
+  clear: both;
   @include relative-font-size(1.5);
 }
 

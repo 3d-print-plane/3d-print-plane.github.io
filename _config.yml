@@ -22,6 +22,7 @@ plugins:
   - jekyll-katex
 
 markdown: kramdown
+excerpt_separator: <!--more-->
 
 title: 3D printed Plane
 # email: your-email@example.com

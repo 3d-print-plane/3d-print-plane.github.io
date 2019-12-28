@@ -3,16 +3,16 @@ layout: post
 title:  "Aerodynamic & Flight Dynamic Design"
 date:   2019-11-30
 categories: Aerodynamics
+comments_id: 5
 --- 
 Disclaimer: This one is quite long and I cannot guarantee factual accuracy.
 For naming conventions of variables/symbols I try to adhere to DIN 9300-1 1990 (I think the eqivalent ISO standard is ISO 1151-1).
 
 ### Airfoil Profile Choice
 
-An obviously important choice for a flying wing is the wing's airfoil. 
-
-Unfortunately there is no perfect choice here. 
-<sub><sub><sub><sub>As for everything...</sub></sub></sub></sub> 
+An obviously important choice for a flying wing is the wing's airfoil.  
+Unfortunately there is no perfect choice here.
+<!--more--><sub><sub><sub><sub>As for everything...</sub></sub></sub></sub> 
 
 There are several important factors to consider:
 - Aerodynamic factors:

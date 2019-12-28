@@ -22,7 +22,12 @@ layout: default
         </h3>
         <span class="post-meta">{{ post.date | date: date_format }}</span>
         {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
+            <section>
+                {{ post.excerpt }}
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                ...
+                </a>
+            </section>
         {%- endif -%}
         {%- if site.show_full -%}
           {{ post.content }}

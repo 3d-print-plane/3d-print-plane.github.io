@@ -3,12 +3,14 @@ layout: post
 title:  "Cut Reinforcement Test"
 date:   2019-11-27
 categories: Basic Test
+comments_id: 3
 --- 
 
 The idea was, to add reinforcements to 3d printed parts by making minimally thin cuts into the part. This technique works quite well with thick parts, I did that. By making a small slice into the 3d part, the slicer then obviously sees walls and adds wall lines accordingly - adding structure to the part without interfering with infill. This also worked for me here, but ONLY with the horizontal cuts to create ribs in the wing. Structural reinforcements in the wing around the spar did not work at all, but created exactly what I constructed in CAD - a cut. In hindsight this sounds obvious, but again - it works for parts with thicker walls, but I only want one wall line due to weight. 
 
 
 [Wing Segment](https://github.com/mpsdskd/3D-Print-Plane/blob/master/3d-test/4_Test_wing_with_cutouts.obj)
+<!--more-->
 
 Well, this looks quite nice, but did not work at all. 
 
