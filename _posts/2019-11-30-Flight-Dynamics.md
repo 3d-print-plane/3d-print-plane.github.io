@@ -5,6 +5,9 @@ date:   2019-11-30
 categories: Aerodynamics
 comments_id: 5
 --- 
+<div style="float: right; width: 100%; text-align: center; ">
+    <img width="100%" src="/img/xflr5_profiles.png" alt="Profiles"/>
+</div>
 Disclaimer: This one is quite long and I cannot guarantee factual accuracy.
 For naming conventions of variables/symbols I try to adhere to DIN 9300-1 1990 (I think the eqivalent ISO standard is ISO 1151-1).
 
