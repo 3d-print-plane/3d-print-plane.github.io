@@ -30,6 +30,10 @@ Incredibly useful for creating multiple render windows on one page:
 [threejsfundamentals.org/threejs/lessons/threejs-multiple-scenes.html](https://threejsfundamentals.org/threejs/lessons/threejs-multiple-scenes.html)
 <sub><sub><sub> Multiple 3d elements sucked at first, as I first tested with a single 3d element - which worked beautifully - and then EVERYTHING broke with multiple 3d elements :( </sub></sub></sub>
 
+### Comment System hijacking Github Issues
+
+[aristath](https://github.com/aristath) / 
+[blog post](https://aristath.github.io/blog/static-site-comments-using-github-issues-api)
 
 ### Tools used
 

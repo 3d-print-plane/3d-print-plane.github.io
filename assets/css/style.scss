@@ -3,6 +3,7 @@
 ---
 
 @import "minima-{{ site.minima.skin | default: 'classic' }}";
+@import "_comments";
 
 body {
     overflow-x: hidden !important;

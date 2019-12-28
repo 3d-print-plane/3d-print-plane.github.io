@@ -24,7 +24,7 @@ var createRenderer = function(){
 
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.autoUpdate = true;
-//         renderer.setClearColor( 0x0000ff, 0 );
+        renderer.setClearColor( 0x000000, 0 );
     }
     else {console.log("Renderer already existing");}
 }
@@ -54,7 +54,7 @@ var makeScene = function(div_name, filename, s, x, y, z, phi, theta, psi) {
     sceneInfos[div_name].htmlElement.appendChild( stats.dom );
     }
     
-    console.log(sceneInfos[div_name].htmlElement.offsetWidth,sceneInfos[div_name].htmlElement.offsetHeight);
+    if (testing){ console.log( sceneInfos[div_name].htmlElement.offsetWidth, sceneInfos[div_name].htmlElement.offsetHeight ) };
     width = sceneInfos[div_name].htmlElement.offsetWidth;
     height = sceneInfos[div_name].htmlElement.offsetHeight;
 
@@ -138,6 +138,8 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         var material = new THREE.MeshPhongMaterial( {specular: 0x111111, shininess: 0, vertexColors: THREE.VertexColors, opacity: 0.8, transparent: true,} );
         mesh = new THREE.Mesh( geometry, material );
 
+        mesh.material.side = THREE.DoubleSide;
+        mesh.material.depthWrite = false;
         mesh.position.x = x;// - 0.2;
         mesh.position.y = y;
         mesh.position.z = z;
@@ -146,9 +148,9 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         mesh.rotation.z = psi;
         mesh.scale.multiplyScalar(s);
         mesh.castShadow = true;
-        mesh.receiveShadow = true;
+        mesh.receiveShadow = false;
         
-        var wf_material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.2, transparent: true,} );
+        var wf_material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.1, transparent: true,} );
         var wf = new THREE.Mesh( geometry, wf_material );
         
         wf.position.x = x;// - 0.2;
@@ -173,7 +175,7 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         console.log("OBJ");
         var loader = new THREE.OBJLoader();
         loader.load( filename, function ( mesh ) {
-            console.log(mesh);
+            if (testing){console.log(mesh);};
 //             var material = new THREE.MeshStandardMaterial( { color: 0x0055ff, flatShading: true } );
             var material = new THREE.MeshPhongMaterial( {specular: 0x888888, shininess: 0, opacity: 0.8, transparent: true,} );
             mesh.traverse( function( child ) {
@@ -183,6 +185,8 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
             }
         } );
         mesh.material = material;
+        mesh.material.side = THREE.DoubleSide;
+        mesh.material.depthWrite = false;
         mesh.position.x = x;// - 0.2;
         mesh.position.y = y;
         mesh.position.z = z;
@@ -191,9 +195,9 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         mesh.rotation.z = psi;
         mesh.scale.multiplyScalar(s);
         mesh.castShadow = true;
-        mesh.receiveShadow = true;
+        mesh.receiveShadow = false;
         
-        wf.material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.1, transparent: true,} );
+        wf.material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.05, transparent: true,} );
         wf.position.x = x;// - 0.2;
         wf.position.y = y;
         wf.position.z = z;
@@ -205,11 +209,10 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         wf.receiveShadow = false;
 
         sceneInfos[div_name].scene.add( wf );
-        sceneInfos[div_name].scene.add( mesh );
-
         sceneInfos[div_name].meshes.push( wf );
-        sceneInfos[div_name].meshes.push( mesh );
         
+        sceneInfos[div_name].scene.add( mesh );
+        sceneInfos[div_name].meshes.push( mesh );
         
         } );
     };

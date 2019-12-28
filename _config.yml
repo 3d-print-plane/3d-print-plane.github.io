@@ -18,6 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+plugins:
+  - jekyll-katex
+
+markdown: kramdown
+
 title: 3D printed Plane
 # email: your-email@example.com
 description: 'I´ll describe my path to a mostly 3d-printed RC model airplane here. As logical, scientific, and well documented as possible. The regarding git with some more documentation, CAD-files, aerodynamic calculations, flight dynamics and 3d models can be found [in the repository](https://github.com/mpsdskd/3D-Print-Plane).'
@@ -39,7 +44,8 @@ minima:
     rss: true
     thingiverse: dskd
     
-show_full: true
+show_full: false
+show_excerpts: true
 
 #github:
 #  repository_url: http://example.com
@@ -48,6 +54,16 @@ show_full: true
 theme: minima
 plugins:
   - jekyll-feed
+  
+comment_repository: "https://github.com/3d-print-plane/3d-print-plane.github.io"
+comment_repository_api: "https://api.github.com/repos/3d-print-plane/3d-print-plane.github.io"
+
+
+data:
+    settings:
+        gh_api:
+            ci: "808f174943b491ef42dc"
+            cs: "c4d01857c44636e83a48624d351abb59a00f0096"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
