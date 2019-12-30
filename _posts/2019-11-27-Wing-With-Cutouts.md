@@ -5,10 +5,10 @@ date:   2019-11-27
 categories: Basic Test
 comments_id: 3
 --- 
-TODO IMAGE
-<div style="float: right; width: 40%; text-align: center; margin-left: 0.5em;  margin-bottom: 0.5em;">
-    <img width="100%" src="/img/failed_cutout.png" alt="failed cutout"/>
-    This cut perpendicular to layers did not work at all
+
+<div style="float: right; width: 50%; text-align: center; margin-left: 1em;  margin-bottom: 0.5em;">
+    <img width="100%" src="/img/failed_cutout.jpg" alt="failed cutout"/>
+    This cut perpendicular to layers did not work at all - or rather it did work as it did cut, but both sides of the cut did not fuse together as intended
 </div>
 
 The idea was, to add reinforcements to 3d printed parts by making minimally thin cuts into the part. This technique works quite well with thick parts, I did that. By making a small slice into the 3d part, the slicer then obviously sees walls and adds wall lines accordingly - adding structure to the part without interfering with infill. This also worked for me here, but ONLY with the horizontal cuts to create ribs in the wing. Structural reinforcements in the wing around the spar did not work at all, but created exactly what I constructed in CAD - a cut. In hindsight this sounds obvious, but again - it works for parts with thicker walls, but I only want one wall line due to weight. 
@@ -38,7 +38,7 @@ Google to the help! (And it did help :) )
 Also: Example to where it worked
 
 
-<div style="float: right; width: 40%; text-align: center; margin-left: 0.5em;  margin-bottom: 0.5em;">
-    <img width="100%" src="/img/working_cutout.png" alt="successful cutout"/>
-    This cut nearly parallel to layers did work. "neary", to ensure printability.
+<div style="float: center; width: 100%; text-align: center; margin-left: 0.5em;  margin-bottom: 0.5em;">
+    <img width="100%" src="/img/working_cutout.jpg" alt="successful cutout"/>
+    The cut nearly parallel to layers did work. "neary", to ensure printability.
 </div>
