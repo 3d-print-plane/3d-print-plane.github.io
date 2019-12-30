@@ -50,5 +50,28 @@ There are several important factors to consider:
             - Reduced AoI at the tip is supposed to help
             - Fins at the tip
     - A Good read on stability, which I saw too late: [http://www.xflr5.tech/docs/XFLR5_and_Stability_analysis.pdf](http://www.xflr5.tech/docs/XFLR5_and_Stability_analysis.pdf)
+- Flight Characteristics
+    - Gentle stalling characteristics - no tip stall - stall first in the middle of the wing
+        - Lower AoI at wing tips & profile stalling at higher $$\alpha$$
+    - No adverse Yaw
+        - Wing twist is supposed to help?
+        - Different deflection angles for elevons up/down for roll might also help?
+    
+<dl>
+<div style="float: right; width: 100%; text-align: center; margin-bottom: 0.5em;">
+    {% include 3dscript.html %}
+    <div id="xflr5stl" style="position:absolute; background-color:#000000; left:0; height:50vh; min-height:400px; width:100%"> </div>
+    <div style="position:relative; height:50vh; min-height:400px; width:0px"></div>
+    <script>
+        makeScene("xflr5stl", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/11_XFLR5_export.stl", 0.004, 0,0,0, -Math.PI/2,0,-Math.PI/2); 
+        render();
+    </script>
+    XFLR5's STL does not really work well with my THREE.JS script
+    </div>
+</dl>
+
+
+Proposed Solution:
+- 
 
 [XFLR5 file](https://github.com/mpsdskd/3D-Print-Plane/blob/master/FlyingWing.xfl)

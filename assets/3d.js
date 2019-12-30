@@ -135,7 +135,7 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         console.log("PLY");
         geometry.computeVertexNormals();
 //         var material = new THREE.MeshStandardMaterial( { color: 0x0055ff, flatShading: true } );
-        var material = new THREE.MeshPhongMaterial( {specular: 0x111111, shininess: 0, vertexColors: THREE.VertexColors, opacity: 0.8, transparent: true,} );
+        var material = new THREE.MeshPhongMaterial( {specular: 0x333333, shininess: 0, vertexColors: THREE.VertexColors, opacity: 0.8, transparent: true,} );
         mesh = new THREE.Mesh( geometry, material );
 
         mesh.material.side = THREE.DoubleSide;
@@ -150,7 +150,7 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         mesh.castShadow = true;
         mesh.receiveShadow = false;
         
-        var wf_material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.1, transparent: true,} );
+        var wf_material = new THREE.MeshStandardMaterial( { color: 0x333333, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.1, transparent: true,} );
         var wf = new THREE.Mesh( geometry, wf_material );
         
         wf.position.x = x;// - 0.2;
@@ -197,7 +197,7 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         mesh.castShadow = true;
         mesh.receiveShadow = false;
         
-        wf.material = new THREE.MeshStandardMaterial( { color: 0x111111, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.05, transparent: true,} );
+        wf.material = new THREE.MeshStandardMaterial( { color: 0x333333, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.05, transparent: true,} );
         wf.position.x = x;// - 0.2;
         wf.position.y = y;
         wf.position.z = z;
@@ -215,6 +215,48 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         sceneInfos[div_name].meshes.push( mesh );
         
         } );
+    };
+    if (filetype == "stl"){
+        console.log("STL");
+        var loader = new THREE.STLLoader();
+        loader.load( filename, function ( geometry ) {
+        if (testing){console.log(geometry);};
+//             var material = new THREE.MeshStandardMaterial( { color: 0x0055ff, flatShading: true } );
+        var material = new THREE.MeshPhongMaterial( {specular: 0x333333, shininess: 0, vertexColors: THREE.VertexColors, opacity: 0.8, transparent: true,} );
+        mesh = new THREE.Mesh( geometry, material );
+
+        mesh.material.side = THREE.DoubleSide;
+        mesh.material.depthWrite = false;
+        mesh.position.x = x;// - 0.2;
+        mesh.position.y = y;
+        mesh.position.z = z;
+        mesh.rotation.x = phi;
+        mesh.rotation.y = theta;
+        mesh.rotation.z = psi;
+        mesh.scale.multiplyScalar(s);
+        mesh.castShadow = true;
+        mesh.receiveShadow = false;
+        
+        var wf_material = new THREE.MeshStandardMaterial( { color: 0x333333, flatShading: true, wireframe: true, wireframeLinewidth: 1, opacity: 0.1, transparent: true,} );
+        var wf = new THREE.Mesh( geometry, wf_material );
+        
+        wf.position.x = x;// - 0.2;
+        wf.position.y = y;
+        wf.position.z = z;
+        wf.rotation.x = phi;
+        wf.rotation.y = theta;
+        wf.rotation.z = psi;
+        wf.scale.multiplyScalar( s*(1+0.00001) );
+        wf.castShadow = false;
+        wf.receiveShadow = false;
+
+        sceneInfos[div_name].scene.add( wf );
+        sceneInfos[div_name].scene.add( mesh );
+
+        sceneInfos[div_name].meshes.push( wf );
+        sceneInfos[div_name].meshes.push( mesh );
+        
+    } );
     };
 }
 
