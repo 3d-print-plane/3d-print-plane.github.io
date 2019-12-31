@@ -35,27 +35,29 @@ There are several important factors to consider:
     - Doable in FreeCAD
     - Flap will be printed with a flat bottom surface, thus trailing edge should not be curved
     - Form stability - round-ish forms are a bit more form stable (mostly was not considered)
-- Flight Dynamics:
-    - For stable flight __the sum of all moments of force must be zero__
-    - Longitudinal Stability.
-        - Generally, for planes the center of gravity should be located in front of the wing's center of pressure. Thus, without further influences the plane would pitch down (German Wikipedia has a nice longer explanation [de.wikipedia.org/wiki/Weight_and_Balance](https://de.wikipedia.org/wiki/Weight_and_Balance), but I did not find an English equivalent). To counteract this pitching moment, the horizontal stabilizer creates a downwards force, also counteracting a bit of the wing's lift and creating drag. In a stable condition, with a change in pitch $$ \phi $$ (and Angle of Attack __AoA__) a counteraction moment is produced $$\frac{\partial C_m}{\partial C_\alpha} < 0 $$. See [en.wikipedia.org/wiki/Longitudinal_static_stability.](https://en.wikipedia.org/wiki/Longitudinal_static_stability).
-        - With flying wings there is no tailplane, thus there are potential problems with longitudinal stability. 
-        - Solutions: 
-            -Wing Swept back, Angle of Incidence __AoI__ lower in the outer regions of the wing (-> in the back), acting like a tailplane. See [en.wikipedia.org/wiki/Tailless_aircraft](https://en.wikipedia.org/wiki/Tailless_aircraft) - IMHO a really good article.
-            - Airfoils with low pitching moments
-    - Yaw stability.
-        - Similar problem as for longitudinal stability - neither is there a vertical stabilizer. Not directly given as a graph of partial derivatives in XFLR5 so it's a bit of guesswork.
-        - Solutions: See [en.wikipedia.org/wiki/Flying_wing](https://en.wikipedia.org/wiki/Flying_wing)
-            - Wing Sweep
-            - Reduced AoI at the tip is supposed to help
-            - Fins at the tip
-    - A Good read on stability, which I saw too late: [http://www.xflr5.tech/docs/XFLR5_and_Stability_analysis.pdf](http://www.xflr5.tech/docs/XFLR5_and_Stability_analysis.pdf)
-- Flight Characteristics
-    - Gentle stalling characteristics - no tip stall - stall first in the middle of the wing
-        - Lower AoI at wing tips & profile stalling at higher $$\alpha$$
-    - No adverse Yaw
-        - Wing twist is supposed to help?
-        - Different deflection angles for elevons up/down for roll might also help?
+
+### Flight Dynamics
+- For stable flight __the sum of all moments of force must be zero__
+- Longitudinal Stability.
+    - Generally, for planes the center of gravity should be located in front of the wing's center of pressure. Thus, without further influences the plane would pitch down (German Wikipedia has a nice longer explanation [de.wikipedia.org/wiki/Weight_and_Balance](https://de.wikipedia.org/wiki/Weight_and_Balance), but I did not find an English equivalent). To counteract this pitching moment, the horizontal stabilizer creates a downwards force, also counteracting a bit of the wing's lift and creating drag. In a stable condition, with a change in pitch $$ \phi $$ (and Angle of Attack __AoA__) a counteraction moment is produced $$\frac{\partial C_m}{\partial C_\alpha} < 0 $$. See [en.wikipedia.org/wiki/Longitudinal_static_stability.](https://en.wikipedia.org/wiki/Longitudinal_static_stability).
+    - With flying wings there is no tailplane, thus there are potential problems with longitudinal stability. 
+    - Solutions: 
+        -Wing Swept back, Angle of Incidence __AoI__ lower in the outer regions of the wing (-> in the back), acting like a tailplane. See [en.wikipedia.org/wiki/Tailless_aircraft](https://en.wikipedia.org/wiki/Tailless_aircraft) - IMHO a really good article.
+        - Airfoils with low pitching moments
+- Yaw stability.
+    - Similar problem as for longitudinal stability - neither is there a vertical stabilizer. Not directly given as a graph of partial derivatives in XFLR5 so it's a bit of guesswork.
+    - Solutions: See [en.wikipedia.org/wiki/Flying_wing](https://en.wikipedia.org/wiki/Flying_wing)
+        - Wing Sweep
+        - Reduced AoI at the tip is supposed to help
+        - Fins at the tip
+- A Good read on stability, which I saw too late: [http://www.xflr5.tech/docs/XFLR5_and_Stability_analysis.pdf](http://www.xflr5.tech/docs/XFLR5_and_Stability_analysis.pdf)
+
+### Flight Characteristics
+- Gentle stalling characteristics - no tip stall - stall first in the middle of the wing
+    - Lower AoI at wing tips & profile stalling at higher $$\alpha$$
+- No adverse Yaw
+    - Wing twist is supposed to help?
+    - Different deflection angles for elevons up/down for roll might also help?
     
 <dl>
 <div style="float: right; width: 100%; text-align: center; margin-bottom: 0.5em;">
@@ -70,8 +72,21 @@ There are several important factors to consider:
     </div>
 </dl>
 
+### Useful things
+- [Airfoil Database](https://m-selig.ae.illinois.edu/ads/coord_database.html)
+- [Another Airfoil Database](https://www.aerodesign.de/english/profile/profile_s.htm)
+- [SHORT XFLR5 Walkthrough](https://www.youtube.com/watch?v=P6AZTxZkojo)
+- [Flying Wing Design Help - Really good, but __GERMAN__](https://www.aerodesign.de/modelle/HS/hs63x_d.htm)
 
-Proposed Solution:
-- 
+### Proposed Solution
+- Airfoil Choice
+    - [According to aerodesign.de](https://www.aerodesign.de/profile/profile_s.htm) I chose a thicker profile (S5010) and modified it regarding thickness in the inner wing parts
+        - Should be good regarding moments, is thick for construction reasons
+    - For comparison I also took the Clark-Y profile & S5020
+    
+    
+
+
+
 
 [XFLR5 file](https://github.com/mpsdskd/3D-Print-Plane/blob/master/FlyingWing.xfl)

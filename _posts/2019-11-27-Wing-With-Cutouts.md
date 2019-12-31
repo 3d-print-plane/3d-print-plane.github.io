@@ -6,7 +6,7 @@ categories: Basic Test
 comments_id: 3
 --- 
 
-<div style="float: right; width: 50%; text-align: center; margin-left: 1em;  margin-bottom: 0.5em;">
+<div style="float: right; width: 40%; text-align: center; margin-left: 1em;  margin-bottom: 0.5em;">
     <img width="100%" src="/img/failed_cutout.jpg" alt="failed cutout"/>
     This cut perpendicular to layers did not work at all - or rather it did work as it did cut, but both sides of the cut did not fuse together as intended
 </div>
