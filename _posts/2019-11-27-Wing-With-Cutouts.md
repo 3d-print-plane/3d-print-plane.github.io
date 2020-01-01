@@ -28,6 +28,18 @@ Well, this looks quite nice, but did not work at all.
         makeScene("mycanvas1", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/4_Test_wing_with_cutouts.obj", 0.01, -1,-1.42,0, -Math.PI/2,0,0); 
         render();
     </script>
+
+<style>
+.zoomable {
+    transition-duration: .4s;
+    transition-timing-function: ease;
+    overflow-x: visible;
+}
+.zoomable:active {
+    overflow-x: visible;
+    transform: scale(2.0);
+}
+</style>
 </dl>
 
 So I need a new solution :(
@@ -39,6 +51,6 @@ Also: Example to where it worked
 
 
 <div style="float: center; width: 100%; text-align: center; margin-left: 0.5em;  margin-bottom: 0.5em;">
-    <img width="100%" src="/img/working_cutout.jpg" alt="successful cutout"/>
+    <img width="100%" src="/img/working_cutout.jpg" alt="successful cutout" class="zoomable"/>
     The cut nearly parallel to layers did work. "neary", to ensure printability.
 </div>

@@ -221,8 +221,7 @@ function load(div_name, filename, s, x,y,z, phi, theta, psi) {
         var loader = new THREE.STLLoader();
         loader.load( filename, function ( geometry ) {
         if (testing){console.log(geometry);};
-//             var material = new THREE.MeshStandardMaterial( { color: 0x0055ff, flatShading: true } );
-        var material = new THREE.MeshPhongMaterial( {specular: 0x888888, shininess: 0, vertexColors: THREE.VertexColors, opacity: 0.8, transparent: true,} );
+        var material = new THREE.MeshPhongMaterial( {specular: 0x888888, shininess: 0, opacity: 0.8, transparent: true,} );
         mesh = new THREE.Mesh( geometry, material );
 
         mesh.material.side = THREE.DoubleSide;
