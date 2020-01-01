@@ -33,10 +33,10 @@ Well, this looks quite nice, but did not work at all.
 .zoomable {
     transition-duration: .4s;
     transition-timing-function: ease;
-    overflow-x: visible;
+<!--     overflow-x: visible; -->
 }
-.zoomable:active {
-    overflow-x: visible;
+.zoomable:hover {
+<!--     overflow-x: visible; -->
     transform: scale(2.0);
 }
 </style>
