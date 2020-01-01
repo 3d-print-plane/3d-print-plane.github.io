@@ -7,7 +7,7 @@ comments_id: 3
 --- 
 
 <div style="float: right; width: 40%; text-align: center; margin-left: 1em;  margin-bottom: 0.5em;">
-    <img width="100%" src="/img/failed_cutout.jpg" alt="failed cutout"/>
+    <img width="100%" src="/img/failed_cutout.jpg" alt="failed cutout" class="zoomable"/>
     This cut perpendicular to layers did not work at all - or rather it did work as it did cut, but both sides of the cut did not fuse together as intended
 </div>
 
@@ -28,18 +28,6 @@ Well, this looks quite nice, but did not work at all.
         makeScene("mycanvas1", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/4_Test_wing_with_cutouts.obj", 0.01, -1,-1.42,0, -Math.PI/2,0,0); 
         render();
     </script>
-
-<style>
-.zoomable {
-    transition-duration: .4s;
-    transition-timing-function: ease;
-<!--     overflow-x: visible; -->
-}
-.zoomable:hover {
-<!--     overflow-x: visible; -->
-    transform: scale(2.0);
-}
-</style>
 </dl>
 
 So I need a new solution :(

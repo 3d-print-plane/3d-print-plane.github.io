@@ -8,3 +8,10 @@
 body {
     overflow-x: hidden !important;
 }
+.zoomable {
+    transition-duration: .4s;
+    transition-timing-function: ease;
+}
+.zoomable:hover {
+    transform: scale(2.0);
+}
