@@ -62,10 +62,10 @@ There are several important factors to consider:
 <dl>
 <div style="float: right; width: 100%; text-align: center; margin-bottom: 0.5em;">
     {% include 3dscript.html %}
-    <div id="xflr5stl" style="position:absolute; background-color:#000000; left:0; height:50vh; min-height:400px; width:100%"> </div>
+    <div id="xflr5stl" style="position:absolute; background-color:#000000; left:0; height:50vh; min-height:400px; width:100%"> </div> 
     <div style="position:relative; height:50vh; min-height:400px; width:0px"></div>
     <script>
-        makeScene("xflr5stl", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/11_XFLR5_export.stl", 0.004, 0,0,0, -Math.PI/2,0,-Math.PI/2); 
+        makeScene("xflr5stl", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/11_XFLR5_export.stl", 0.005, 0,0.2,0, -Math.PI/2,0,-Math.PI/2); 
         render();
     </script>
     XFLR5's STL does not really work well with my THREE.JS script
@@ -80,9 +80,30 @@ There are several important factors to consider:
 
 ### Proposed Solution
 - Airfoil Choice
-    - [According to aerodesign.de](https://www.aerodesign.de/profile/profile_s.htm) I chose a thicker profile (S5010) and modified it regarding thickness in the inner wing parts
-        - Should be good regarding moments, is thick for construction reasons
+    - [According to aerodesign.de](https://www.aerodesign.de/profile/profile_s.htm) I chose a thicker profile (S5010) and modified it regarding thickness (even thicker) in the inner wing parts, which should work according to XFLR5
+        - Should be good regarding moments
+        - I put quite a bit of thought into the profile choice and then still ended up using the one suggested by [aerodesign.de](https://aerodesign.de)... Well, I'm an engineer, I should be okay with just believing literature ¯\\\_(ツ)\_/¯
     - For comparison I also took the Clark-Y profile & S5020
+        - You can see profile data at:
+            - [CLARK-Y](http://airfoiltools.com/airfoil/details?airfoil=clarky-il)
+            <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
+                <img width="100%" src="/img/CLARKY.png" alt="Profiles" class="zoomable"/>
+            </div>
+            - [S5010](http://airfoiltools.com/airfoil/details?airfoil=s5010-il)
+            <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
+                <img width="100%" src="/img/S5010.png" alt="Profiles" class="zoomable"/>
+            </div>
+            - [S5020](http://airfoiltools.com/airfoil/details?airfoil=s5020-il)
+            <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
+                <img width="100%" src="/img/S5020.png" alt="Profiles" class="zoomable"/>
+            </div>
+        - What can be seen in that comparison:
+            - $$ \mid C_m \mid $$ a lot lower for S5010
+            - $$ C_{L, max} $$ better for CLARK-Y -> thicker
+            - As CLARK-Y is thicker, the drop off for $$ C_a $$, when stalling, is more gentle
+                - Here the data provided by [airfoiltools.com](http://airfoiltools.com) is more in concordance with what I learned at university - XFLR5 still shows a lot of lift beyond stalling - maybe this is calculated with a lift vector rotating with the airfoil?
+            - $$\frac{C_L}{C_D}$$ plateaus for CLARK-Y, has more of a peak for S5010 - generally I would like that plateau better, but as explained before, moments are more important for a flying wing
+            - $$ C_m $$ for S5010 lowering beyond stalling - pitch down, when stalling, should be nice
     
     
 
