@@ -103,9 +103,15 @@ There are several important factors to consider:
             - As CLARK-Y is thicker, the drop off for $$ C_a $$, when stalling, is more gentle
                 - Here the data provided by [airfoiltools.com](http://airfoiltools.com) is more in concordance with what I learned at university - XFLR5 still shows a lot of lift beyond stalling - maybe this is calculated with a lift vector rotating with the airfoil?
             - $$\frac{C_L}{C_D}$$ plateaus for CLARK-Y, has more of a peak for S5010 - generally I would like that plateau better, but as explained before, moments are more important for a flying wing
-            - $$ C_m $$ for S5010 lowering beyond stalling - pitch down, when stalling, should be nice
-    
-    
+            - $$ C_m $$ for S5010 lowering beyond stall AoA - pitch down, when stalling, should be nice
+
+- Wing
+    - Planform
+        - 
+    - Lift Distribution
+        - For a Flying Wing a bell shaped lift distribution is recommended. To calculate a lift distribution, the design lift force is necessary (which I don't know exactly) and the design speed (which I don't know at all)<br>
+        Sooo... Precision guesswork - or rather asking the internet<br>
+        ... [which answered me -2.0°](https://www.aerodesign.de/modelle/HS/hs63x_d.htm)
 
 
 
