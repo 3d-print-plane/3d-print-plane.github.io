@@ -7,7 +7,7 @@ comments_id: 3
 --- 
 
 <div style="float: right; width: 40%; text-align: center; margin-left: 1em;  margin-bottom: 0.5em;">
-    <img width="100%" src="/img/failed_cutout.jpg" alt="failed cutout" class="zoomable"/>
+    <img width="100%" src="/img/3/failed_cutout.jpg" alt="failed cutout" class="zoomable"/>
     This cut perpendicular to layers did not work at all - or rather it did work as it did cut, but both sides of the cut did not fuse together as intended
 </div>
 
@@ -39,6 +39,6 @@ Also: Example to where it worked
 
 
 <div style="float: center; width: 100%; text-align: center; margin-left: 0.5em;  margin-bottom: 0.5em;">
-    <img width="100%" src="/img/working_cutout.jpg" alt="successful cutout" class="zoomable"/>
+    <img width="100%" src="/img/3/working_cutout.jpg" alt="successful cutout" class="zoomable"/>
     The cut nearly parallel to layers did work. "neary", to ensure printability.
 </div>

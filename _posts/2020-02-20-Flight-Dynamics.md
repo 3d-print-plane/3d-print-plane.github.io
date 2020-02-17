@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Aerodynamic & Flight Dynamic Design"
-date:   2019-11-30
+date:   2020-01-30
 categories: Aerodynamics
 comments_id: 5
 --- 
@@ -65,10 +65,10 @@ There are several important factors to consider:
     <div id="xflr5stl" style="position:absolute; background-color:#000000; left:0; height:50vh; min-height:400px; width:100%"> </div> 
     <div style="position:relative; height:50vh; min-height:400px; width:0px"></div>
     <script>
-        makeScene("xflr5stl", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/11_XFLR5_export.stl", 0.005, 0,0.2,0, -Math.PI/2,0,-Math.PI/2); 
+        makeScene("xflr5stl", "https://raw.githubusercontent.com/mpsdskd/3D-Print-Plane/master/3d-test/12_XFLR5_export.stl", 0.005, 0,0.2,0, -Math.PI/2,0,-Math.PI/2); 
         render();
     </script>
-    XFLR5's STL does not really work well with my THREE.JS script
+    XFLR5 export
     </div>
 </dl>
 
@@ -107,13 +107,50 @@ There are several important factors to consider:
 
 - Wing
     - Planform
-        - 
-    - Lift Distribution
+        - For stability reasons the wing must be swept - I went with around 30° as an average over a lot of google searches and forum guesstimates - also I think it does look nice this way :)
+    - Lift Distribution & twist
         - For a Flying Wing a bell shaped lift distribution is recommended. To calculate a lift distribution, the design lift force is necessary (which I don't know exactly) and the design speed (which I don't know at all)<br>
         Sooo... Precision guesswork - or rather asking the internet<br>
         ... [which answered me -2.0°](https://www.aerodesign.de/modelle/HS/hs63x_d.htm)
+        - Maybe I will revise those design choices later on, but for the first iteration that's it.
+    - Winglets
+        - I will write a post on winglets, but for now the answer is, that I will have "winglets" with 45° dihedral for printability & 2.5° twist.
+
+<div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
+    <img width="100%" src="/img/XFLR5_planform.png" alt="Profiles" class="zoomable"/>
+</div>
+            
+### Results
+That's a wing in software, I have no idea, how it performs in reality.<br>
+For me the most important factor for this analysis is longitudinal stability and a first value for the CoG. According to XFLR5 the wing is still stable for the CoG in the picture above, as can be seen polar graph below: $$C_m = 0 $$ for $$ \alpha = 4° $$ and a falling curve for $$C_m$$. If anything, it might not be easy to get that CoG that far back, but this will be trial and error also.
+
+For yaw stability & dutch roll even more quesswork is involved. PROBABLY the wing sweep should provide yaw stability. But, with a lot of surface area in front of the CoG, the Fuselage is an important factor for longitudinal and yaw stability, which is not accounted for in XFLR5 [per its programmer himself.](https://sourceforge.net/p/xflr5/blog/2018/07/fuselage-inclusion-in-the-model/) So it's hoping for the best. In case of instability I would probably add a vertical stabilizer to the fuselage and/or [wing fences, as advised by RCModelReviews.](https://www.youtube.com/watch?v=x2Cn3vIb6gw)
+
+I did the XFLR5 stability analysis anyway (without fuselage):
+Well... It told me, Dutch Roll has a positive real value for it's eigenvalue and, thus, is unstable :(
+An considering my guess, that the fuselage will make stability worse, I will try to modify the plane to make it more stable (without wing fences first).
+
+A short introduction to the root locus diagram for normal modes in aircraft. [The root locus is a tool from control theory and can provide information regarding stability, damping, and frequency of a normal mode.](https://en.wikipedia.org/wiki/Root_locus)<br>
+In the plane's case the most important factor is: I want that to be stable. I want EVERYTHING around that to be stable without additional controllers. For something to be stable in the root locus diagram the real part of the complex number representing the normal mode must be $$ <0 $$.
+
+<div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
+    <img width="100%" src="/img/XFLR5_planform.png" alt="Profiles" class="zoomable"/>
+    That's how it's not supposed to be like. Somethin right of 0 = bad.
+</div>
+
+### Next Iteration
+According to [a paper](http://www.scielo.br/scielo.php?script=sci_arttext&pid=S2175-91462019000100335) the dihedral angle might increase the dutch roll instability.
+
+Thus I removed the "Winglets"/45° dihedral wing tip areas and basically went on with the 20° dihedral, which I had for screwing together reasons and for roll stability, up to the wing tips.
+
+Still unstable :(
+But VERY slightly unstable. The internet could not provide me with a *nice* solution unfortunately. The only solution provided is adding more directional stability by adding some sort of fin (not fins as winglets). 
+I'm providing some more graphs below, with & without stabilizers.
+
+### Another Interation
+
+I did add stabilizers & they do, what they ares supposed to. Construction wise, I added them in between two printed parts, so that I can change, remove & add them, if I do not like the handling characteristics. 
 
 
 
-
-[XFLR5 file](https://github.com/mpsdskd/3D-Print-Plane/blob/master/FlyingWing.xfl)
+[Current XFLR5 file](https://github.com/mpsdskd/3D-Print-Plane/blob/master/FlyingWing.xfl)
