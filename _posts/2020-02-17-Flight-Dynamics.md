@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "Aerodynamic & Flight Dynamic Design"
-date:   2020-01-30
+date:   2020-02-17
 categories: Aerodynamics
 comments_id: 5
 --- 
 <div style="float: right; width: 100%; text-align: center; margin-bottom: 0.5em;">
-    <img width="100%" src="/img/xflr5_profiles.png" alt="Profiles"/>
+    <img width="100%" src="/img/5/xflr5_profiles.png" alt="Profiles"/>
 </div>
 Disclaimer: This one is quite long and I cannot guarantee factual accuracy.
 For naming conventions of variables/symbols I try to adhere to DIN 9300-1 1990 (I think the eqivalent ISO standard is ISO 1151-1).
@@ -87,15 +87,15 @@ There are several important factors to consider:
         - You can see profile data at:
             - [CLARK-Y](http://airfoiltools.com/airfoil/details?airfoil=clarky-il)
             <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
-                <img width="100%" src="/img/CLARKY.png" alt="Profiles" class="zoomable"/>
+                <img width="100%" src="/img/5/CLARKY.png" alt="Profiles" class="zoomable"/>
             </div>
             - [S5010](http://airfoiltools.com/airfoil/details?airfoil=s5010-il)
             <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
-                <img width="100%" src="/img/S5010.png" alt="Profiles" class="zoomable"/>
+                <img width="100%" src="/img/5/S5010.png" alt="Profiles" class="zoomable"/>
             </div>
             - [S5020](http://airfoiltools.com/airfoil/details?airfoil=s5020-il)
             <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
-                <img width="100%" src="/img/S5020.png" alt="Profiles" class="zoomable"/>
+                <img width="100%" src="/img/5/S5020.png" alt="Profiles" class="zoomable"/>
             </div>
         - What can be seen in that comparison:
             - $$ \mid C_m \mid $$ a lot lower for S5010
@@ -117,7 +117,7 @@ There are several important factors to consider:
         - I will write a post on winglets, but for now the answer is, that I will have "winglets" with 45° dihedral for printability & 2.5° twist.
 
 <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
-    <img width="100%" src="/img/XFLR5_planform.png" alt="Profiles" class="zoomable"/>
+    <img width="100%" src="/img/5/XFLR5_planform.png" alt="Profiles" class="zoomable"/>
 </div>
             
 ### Results
@@ -134,8 +134,9 @@ A short introduction to the root locus diagram for normal modes in aircraft. [Th
 In the plane's case the most important factor is: I want that to be stable. I want EVERYTHING around that to be stable without additional controllers. For something to be stable in the root locus diagram the real part of the complex number representing the normal mode must be $$ <0 $$.
 
 <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
-    <img width="100%" src="/img/XFLR5_planform.png" alt="Profiles" class="zoomable"/>
+    <img width="100%" src="/img/5/XFLR5_planform.png" alt="Profiles" class="zoomable"/>
     That's how it's not supposed to be like. Somethin right of 0 = bad.
+    TODO FIX IMAGE
 </div>
 
 ### Next Iteration
