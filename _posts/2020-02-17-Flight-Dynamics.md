@@ -134,9 +134,8 @@ A short introduction to the root locus diagram for normal modes in aircraft. [Th
 In the plane's case the most important factor is: I want that to be stable. I want EVERYTHING around that to be stable without additional controllers. For something to be stable in the root locus diagram the real part of the complex number representing the normal mode must be $$ <0 $$.
 
 <div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
-    <img width="100%" src="/img/5/XFLR5_planform.png" alt="Profiles" class="zoomable"/>
+    <img width="100%" src="/img/5/dutch_roll_instability.png" alt="Profiles" class="zoomable"/>
     That's how it's not supposed to be like. Somethin right of 0 = bad.
-    TODO FIX IMAGE
 </div>
 
 ### Next Iteration
@@ -152,6 +151,39 @@ I'm providing some more graphs below, with & without stabilizers.
 
 I did add stabilizers & they do, what they ares supposed to. Construction wise, I added them in between two printed parts, so that I can change, remove & add them, if I do not like the handling characteristics. 
 
+This is what it looks like now:
 
+<dl>
+<div style="float: right; width: 100%; text-align: center; margin-bottom: 0.5em;">
+    {% include 3dscript.html %}
+    <div id="xflr5stl2" style="position:absolute; background-color:#000000; left:0; height:50vh; min-height:400px; width:100%"> </div> 
+    <div style="position:relative; height:50vh; min-height:400px; width:0px"></div>
+    <script>
+        makeScene("xflr5stl2", "/img/5/dr_prev.obj", 0.005, 0,0.2,0, -Math.PI/2,0,-Math.PI/2); 
+        render();
+    </script>
+    XFLR5 export - now with MORE FINS & less winglets
+    </div>
+</dl>
+
+Data first (xflr5 screenshots):
+
+<div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
+    <img width="100%" src="/img/5/dr_prev_RL.png" alt="Profiles" class="zoomable"/>
+    Nothing right of 0 now.
+</div>
+<br>
+
+<div style="float: center; width: 100%; text-align: center; margin-bottom: 0.5em;">
+    <img width="100%" src="/img/5/dr_prev_polar.png" alt="Profiles" class="zoomable"/>
+    Those are the polar graphs.
+</div>
+
+Is this any good?<br>
+I don't know. I did not find many comparisons online.
+[This](http://47dronin.weebly.com/task-2-aircraft-system-id.html) is something I found, but unfortunately without the xflr5 file. Both designs have better $$L/D$$, but this is to be expected with higher aspect ratio wings, which I cannot do due to the 3D-Print construction. Well, more info would be appreciated.
+
+
+A the preliminary areodynamic design I will work on the next steps with these results - 3D-printable construction in FreeCAD!
 
 [Current XFLR5 file](https://github.com/mpsdskd/3D-Print-Plane/blob/master/FlyingWing.xfl)
